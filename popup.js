@@ -21,31 +21,17 @@ function addButton() {
 function addListener() {
 	var button = document.getElementById("showPhotos");
 	button.getclass = getElementByClass;	// reserve the method in a hidden attr
-	button.trigger = function() {
-		var a = document.createEvent("MouseEvents");
-		a.initEvent("click", true, true);
-		prevLink.dispatchEvent(a);
-	}
 	button.onclick = function(e) {
 		var prevLink = button.getclass("fp-direction fp-prev ");
 		if (!prevLink) {
 			alert("prevLink not found!");
 		}
 		else {
-			var i = 0;
-			while(i < 100) {
-				i++;
-				button.trigger();
-				var photoLink = button.getclass("fp-stage clearfix");
-				if(!photoLink) {
-					alert("photoLink not found!");
-					break;
-				}
-				else {
-					var url = photoLink.href;
-					alert(url);
-				}
-			}
+			//FF的处理 
+			var a = document.createEvent("MouseEvents");
+			a.initEvent("click", true, true);
+			prevLink.dispatchEvent(a);
+			alert("succeed");
 		}
 	}
 }
