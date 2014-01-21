@@ -21,16 +21,19 @@ function addButton() {
 function addListener() {
 	var button = document.getElementById("showPhotos");
 	button.getclass = getElementByClass;	// reserve the method in a hidden attr
+	button.trigger = function () {
+		var a = document.createEvent("MouseEvents");
+		a.initEvent("click", true, true);
+		button.getclass("fp-direction fp-prev ").dispatchEvent(a);
+	}
 	button.onclick = function(e) {
 		var prevLink = button.getclass("fp-direction fp-prev ");
 		if (!prevLink) {
 			alert("prevLink not found!");
 		}
 		else {
-			//FF的处理 
-			var a = document.createEvent("MouseEvents");
-			a.initEvent("click", true, true);
-			prevLink.dispatchEvent(a);
+			
+			button.trigger();
 			alert("succeed");
 		}
 	}
