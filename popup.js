@@ -32,9 +32,19 @@ function addListener() {
 			alert("prevLink not found!");
 		}
 		else {
-			
-			button.trigger();
-			alert("succeed");
+			var i = 0;
+			while(i < 100) {
+				i++;
+				button.trigger();
+				prevLink = button.getclass("fp-direction fp-prev ");
+				if(!prevLink) {
+					alert("prevLink not found after " + i + " prevs");
+				}
+				else {
+					alert("succeed");
+					break;
+				}
+			}
 		}
 	}
 }
