@@ -41,7 +41,14 @@ function addListener() {
 					alert("prevLink not found after " + i + " prevs");
 				}
 				else {
-					alert("succeed");
+					var photoLink = button.getclass("fp-stage clearfix");
+					if(!photoLink) {
+						alert("photoLink not found");
+					}
+					else {
+						alert(photoLink.href);
+						alert("succeed");
+					}
 					break;
 				}
 			}
